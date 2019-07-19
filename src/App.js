@@ -1,24 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MyComponent from './components/myComponent';
 
 function App() {
+  const [x, setX] = useState(1);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setX(x => x+1);
+    }, 1)
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>React is superior to angular!</h1>
+      <h2>It's much simpler to learn</h2>
+      <MyComponent turtle={x}/>
     </div>
   );
 }
